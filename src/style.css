@@ -1,0 +1,73 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    position: relative;
+    background-color: white;
+    height: 100%;
+}
+
+.music_image {
+    width: 100%;
+    height: 100%;
+    background-color: #161816;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background-color: #090C08;
+}
+
+.player_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 100%;
+}
+
+.retroceder {
+    background-color: #A6A6A8;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.playBtn {
+    background-color: #A6A6A8;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.avancar {
+    background-color: #A6A6A8;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.progress_bar {
+    position: relative;
+    background-color: #A6A6A8;
+    height: 4px;
+    width: 40%;
+    margin-bottom: 25px;
+}
+
+.progress {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: blueviolet;
+}
