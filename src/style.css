@@ -32,15 +32,22 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 220px;
+    width: 200px;
     height: 100%;
 }
 
 .retroceder {
-    background-color: #683257;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+
+.retroceder i {
+    font-size: 1.6em;
+    color: #683257;
 }
 
 .retroceder:hover {
@@ -48,10 +55,18 @@ body {
 }
 
 .playBtn {
-    background-color: #683257;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 42px;
     height: 42px;
-    border-radius: 50%;
+    border: 2px solid #683257;
+    border-radius: 100%;
+}
+
+.playBtn i {
+    font-size: 1.2em;
+    color: #683257;
 }
 
 .playBtn:hover {
@@ -59,10 +74,18 @@ body {
 }
 
 .avancar {
-    background-color: #683257;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+
+.avancar i {
+    font-size: 1.6em;
+    color: #683257;
+
 }
 
 .avancar:hover {
