@@ -47,7 +47,7 @@ body {
 
 .retroceder i {
     font-size: 1.6em;
-    color: #683257;
+    color: #ff8b2c;
 }
 
 .retroceder:hover {
@@ -64,7 +64,7 @@ body {
 
 .playBtn i {
     font-size: 2.6em;
-    color: #683257;
+    color: #ff8b2c;
 }
 
 .playBtn:hover {
@@ -82,7 +82,7 @@ body {
 
 .avancar i {
     font-size: 1.6em;
-    color: #683257;
+    color: #ff8b2c;
 
 }
 
@@ -110,11 +110,11 @@ body {
     position: absolute;
     height: 4px;
     width: 0;
-    background-color: #683257;
+    background-color: #ff8b2c;
     border-radius: 12px;
 }
 
 .progress i {
-    color: #683257;
+    color: #ff8b2c;
 }    
 
