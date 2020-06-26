@@ -60,12 +60,10 @@ body {
     align-items: center;
     width: 42px;
     height: 42px;
-    border: 2px solid #683257;
-    border-radius: 100%;
 }
 
 .playBtn i {
-    font-size: 1.2em;
+    font-size: 2.6em;
     color: #683257;
 }
 
@@ -106,9 +104,17 @@ body {
 }
 
 .progress {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     position: absolute;
     height: 4px;
     width: 0;
     background-color: #683257;
-    border-radius: 20%;
+    border-radius: 12px;
 }
+
+.progress i {
+    color: #683257;
+}    
+
