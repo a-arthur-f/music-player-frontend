@@ -2,6 +2,7 @@ let audio = document.querySelector('#audio');
 let play = document.querySelector('.playBtn');
 let avancar = document.querySelector('.avancar');
 let retroceder = document.querySelector('.retroceder');
+let progress = document.querySelector('.progress');
 let state = 0;
 let index = 0;
 
@@ -13,11 +14,13 @@ audio.src = tracks[index];
 
 const playAudio = () => {
     audio.play();
+    play.firstChild.classList = 'fa fa-pause-circle-o'; 
     state = 1;
 }
 
 const pauseAudio = () => {
     audio.pause();
+    play.firstChild.classList = 'fa fa-play-circle-o'; 
     state = 0;
 }
 
@@ -65,6 +68,11 @@ const verificaFim = () => {
     }
 }
 
+const atualizaProgresso = () => {
+    let porcentagem = (audio.currentTime / audio.duration) * 100;
+    progress.style.width = `${porcentagem}%`;
+}
+
 play.addEventListener('click', () => {
     if(state === 0) {
         playAudio();
@@ -75,6 +83,10 @@ play.addEventListener('click', () => {
 });
 
 audio.onended = verificaFim;
+
+audio.ontimeupdate = () => {
+    atualizaProgresso();
+}
 
 avancar.addEventListener('click', avancarAudio);
 retroceder.addEventListener('click', retrocederAudio);
