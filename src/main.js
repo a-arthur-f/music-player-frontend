@@ -2,6 +2,7 @@ let audio = document.querySelector('#audio');
 let play = document.querySelector('.playBtn');
 let avancar = document.querySelector('.avancar');
 let retroceder = document.querySelector('.retroceder');
+let progressBar = document.querySelector('.progress_bar');
 let progress = document.querySelector('.progress');
 let state = 0;
 let index = 0;
@@ -73,6 +74,11 @@ const atualizaProgresso = () => {
     progress.style.width = `${porcentagem}%`;
 }
 
+const atualizaProgressoClick = (event) => {
+    let porcentagem = event.offsetX / progressBar.offsetWidth;
+    audio.currentTime = audio.duration * porcentagem;
+}
+
 play.addEventListener('click', () => {
     if(state === 0) {
         playAudio();
@@ -87,6 +93,8 @@ audio.onended = verificaFim;
 audio.ontimeupdate = () => {
     atualizaProgresso();
 }
+
+progressBar.onclick = atualizaProgressoClick;
 
 avancar.addEventListener('click', avancarAudio);
 retroceder.addEventListener('click', retrocederAudio);
