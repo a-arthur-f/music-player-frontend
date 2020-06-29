@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="icons/font-awesome-4.7.0/css/font-awesome.min.css">
     <title>Music Player</title>
 </head>
 <body>
@@ -19,13 +20,22 @@
             <div class="playBtn"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
             <div class="avancar"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
         </div>
-
+        
         <div class="progress_bar">
+            <div class="current-time">0:00</div>
             <div class="progress"><i class="fa fa-circle" aria-hidden="true"></i></div>
+            <div class="duration-time">0:00</div>
+        </div>
+
+        <div class="volume">
+            <i class="fa fa-volume-up volume-icon" aria-hidden="true"></i>
+            <div class="volume-bar"><div class="current-volume">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+            </div>
+        </div>
         </div>
     </div>
 
     <script src="./src/main.js"></script>
-    <script src="https://use.fontawesome.com/b424b2c9bc.js"></script>
 </body>
 </html>

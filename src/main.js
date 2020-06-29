@@ -4,6 +4,8 @@ let avancar = document.querySelector('.avancar');
 let retroceder = document.querySelector('.retroceder');
 let progressBar = document.querySelector('.progress_bar');
 let progress = document.querySelector('.progress');
+let volumeBar = document.querySelector('.volume-bar');
+let currentVolume = document.querySelector('.current-volume');
 let state = 0;
 let index = 0;
 
@@ -79,6 +81,11 @@ const atualizaProgressoClick = (event) => {
     audio.currentTime = audio.duration * porcentagem;
 }
 
+const atualizaVolumeClick = (event) => {
+    let porcentagem = event.offsetX / volumeBar.offsetWidth;
+    audio.volume = porcentagem.toFixed(2);
+}
+
 play.addEventListener('click', () => {
     if(state === 0) {
         playAudio();
@@ -92,9 +99,33 @@ audio.onended = verificaFim;
 
 audio.ontimeupdate = () => {
     atualizaProgresso();
+    const divCurrentTime = document.querySelector('.current-time');
+    const divDurationTime = document.querySelector('.duration-time');
+
+    let currentMinutes, durationMinutes, currentSeconds, durationSeconds;
+
+    currentMinutes =  Math.floor(audio.currentTime / 60);
+    durationMinutes = Math.floor(audio.duration / 60);
+    currentSeconds = returnTime(Math.floor(audio.currentTime % 60));
+    durationSeconds = returnTime(Math.floor(audio.duration % 60));
+
+    divCurrentTime.innerHTML = `${currentMinutes}:${currentSeconds}`;
+    divDurationTime.innerHTML = `${durationMinutes}:${durationSeconds}`;
+
+    function returnTime(time) {
+        return time < 10 ? `0${time.toString()}` : time;
+    }
 }
 
+currentVolume.style.width = `${audio.volume * 100}%`;
+
 progressBar.onclick = atualizaProgressoClick;
+volumeBar.addEventListener('click', atualizaVolumeClick);
+
+audio.onvolumechange = () => {
+    currentVolume.style.width = `${audio.volume * 100}%`;
+}
 
 avancar.addEventListener('click', avancarAudio);
 retroceder.addEventListener('click', retrocederAudio);
+
