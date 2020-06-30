@@ -11,7 +11,7 @@ let image = document.querySelector('.image img');
 let state = 0;
 let index = 0;
 
-let tracks = ['./musics/o_medo_e_a_licao.mp3', './musics/in da club.mp3'];
+let tracks = ['./musics/Earfquake.mp3', './musics/o_medo_e_a_licao.mp3'];
 
 audio.src = tracks[index];
 
@@ -95,10 +95,10 @@ const setName = (index) => {
 
 const setImage = (index) => {
     if(index === 0) 
-        image.src = './covers/o_medo_e_a_licao.jpg';
+        image.src = './covers/Earfquake.jpg';
 
     else if(index === 1)
-        image.src = './covers/in_da_club.jpg';
+        image.src = './covers/o_medo_e_a_licao.jpg';
 }
 
 play.addEventListener('click', () => {
