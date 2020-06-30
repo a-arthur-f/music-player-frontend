@@ -1,3 +1,3 @@
-* Music Player (frontend)
+# Music Player (frontend)
 
 ---
