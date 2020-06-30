@@ -6,13 +6,14 @@ let progressBar = document.querySelector('.progress_bar');
 let progress = document.querySelector('.progress');
 let volumeBar = document.querySelector('.volume-bar');
 let currentVolume = document.querySelector('.current-volume');
+let name = document.querySelector('.name');
+let image = document.querySelector('.image img');
 let state = 0;
 let index = 0;
 
 let tracks = ['./musics/o_medo_e_a_licao.mp3', './musics/in da club.mp3'];
 
 audio.src = tracks[index];
-
 
 
 const playAudio = () => {
@@ -86,6 +87,20 @@ const atualizaVolumeClick = (event) => {
     audio.volume = porcentagem.toFixed(2);
 }
 
+const setName = (index) => {
+    let arr = audio.src.split('/');
+    let currentName = arr[arr.length - 1];
+    name.innerHTML = currentName.replace(/%20|.mp3|.ogg|_/g, ' ');
+}
+
+const setImage = (index) => {
+    if(index === 0) 
+        image.src = './covers/o_medo_e_a_licao.jpg';
+
+    else if(index === 1)
+        image.src = './covers/in_da_club.jpg';
+}
+
 play.addEventListener('click', () => {
     if(state === 0) {
         playAudio();
@@ -115,6 +130,11 @@ audio.ontimeupdate = () => {
     function returnTime(time) {
         return time < 10 ? `0${time.toString()}` : time;
     }
+}
+
+audio.onloadeddata = () => {
+    setName(index);
+    setImage(index);
 }
 
 currentVolume.style.width = `${audio.volume * 100}%`;
