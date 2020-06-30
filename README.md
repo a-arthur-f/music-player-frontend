@@ -1,3 +1,8 @@
-* Music Player (frontend)
+# Music Player (frontend)
 
 ---
+
+## Tecnologias utilizadas: 
+* HTML
+* CSS
+* JavaScript
