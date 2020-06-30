@@ -3,16 +3,15 @@ html {
 }
 
 body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     position: relative;
-    background-color: white;
-    height: 100%;
-}
-
-.music_image {
-    width: 100%;
-    height: 100%;
     background-color: #161816;
+    background-image: linear-gradient(#161816, #090C08);
+    height: 100%;
+    font-family: sans-serif;
 }
 
 .player {
@@ -171,3 +170,29 @@ i {
     width: 0;
 }
 
+.image-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    height: 75%;  
+}
+
+.image {
+    width: 360px;
+    height: 360px;
+    margin-top: 40px;
+    border-radius: 12px;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.name {
+    color: white;
+    font-size: 32px;
+    margin-top: 12px;
+}
