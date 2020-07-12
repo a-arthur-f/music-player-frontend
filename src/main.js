@@ -1,42 +1,57 @@
-let audio = document.querySelector('#audio');
-let play = document.querySelector('.playBtn');
-let avancar = document.querySelector('.avancar');
-let retroceder = document.querySelector('.retroceder');
-let progressBar = document.querySelector('.progress_bar');
-let progress = document.querySelector('.progress');
-let volumeBar = document.querySelector('.volume-bar');
-let currentVolume = document.querySelector('.current-volume');
-let name = document.querySelector('.name');
-let image = document.querySelector('.image img');
-let state = 0;
+//==================== OBJETOS DOM ====================
+const audio = document.querySelector('#audio');
+const play = document.querySelector('.playBtn');
+const avancar = document.querySelector('.avancar');
+const retroceder = document.querySelector('.retroceder');
+const progressBar = document.querySelector('.progress_bar');
+const progress = document.querySelector('.progress');
+const volumeBar = document.querySelector('.volume-bar');
+const currentVolume = document.querySelector('.current-volume');
+const name = document.querySelector('.name');
+const image = document.querySelector('.image img');
+let state = 0; // 0 = pausado / 1 = tocando
 let index = 0;
 
-let tracks = ['./musics/Earfquake.mp3', './musics/o_medo_e_a_licao.mp3'];
+// Array com src das músicas disponiveis
+const tracks = ['./musics/Earfquake.mp3', './musics/o_medo_e_a_licao.mp3'];
 
+// Define a música inicial
 audio.src = tracks[index];
 
+//==================== FUNÇÕES ====================
 
+// Função de play
 const playAudio = () => {
     audio.play();
-    play.firstChild.classList = 'fa fa-pause-circle-o'; 
-    state = 1;
+    play.firstChild.classList = 'fa fa-pause-circle-o'; // Muda o ícone de play para o de pause 
+    state = 1; 
 }
 
+// Função de pause
 const pauseAudio = () => {
     audio.pause();
-    play.firstChild.classList = 'fa fa-play-circle-o'; 
+    play.firstChild.classList = 'fa fa-play-circle-o'; // Muda o ícone de pause para o de play
     state = 0;
 }
 
-const avancarAudio = ( ) => {
+// Avança para a próxima música
+const pularTrack = ( ) => {
+    /*
+    Atribui o valor da duração toal da música ao tempo atual, o que gera o efeito de pular
+    para a próxima track
+    */
     audio.currentTime = audio.duration;
 }
 
-const retrocederAudio = () => {
+// Volta a track anterior ou ao ínicio da música
+const retrocederTrack = () => {
+    // Se o tempo atual da música for maior que 2 segundos volta ao inicio da música
     if(audio.currentTime > 2)
         audio.currentTime = 0;
 
+    // Senão volta pra track anterior
     else {
+        // Se o index da track atrual for maior que o index da ultima track acrescenta 1 ao index
         if(index < tracks.length - 1) {
             ++index;
             audio.src = tracks[index];
@@ -44,6 +59,7 @@ const retrocederAudio = () => {
             playAudio();
         }
 
+        // Senão reduz 1 do index
         else {
             --index;
             audio.src = tracks[index];
@@ -101,6 +117,8 @@ const setImage = (index) => {
         image.src = './covers/o_medo_e_a_licao.jpg';
 }
 
+//==================== EVENTOS ====================
+
 play.addEventListener('click', () => {
     if(state === 0) {
         playAudio();
@@ -146,6 +164,6 @@ audio.onvolumechange = () => {
     currentVolume.style.width = `${audio.volume * 100}%`;
 }
 
-avancar.addEventListener('click', avancarAudio);
-retroceder.addEventListener('click', retrocederAudio);
+avancar.addEventListener('click', pularTrack);
+retroceder.addEventListener('click', retrocederTrack);
 
