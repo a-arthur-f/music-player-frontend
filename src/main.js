@@ -7,8 +7,8 @@ const progressBar = document.querySelector('.progress_bar');
 const progress = document.querySelector('.progress');
 const volumeBar = document.querySelector('.volume-bar');
 const currentVolume = document.querySelector('.current-volume');
+const cover = document.querySelector('.cover');
 const name = document.querySelector('.name');
-const image = document.querySelector('.image img');
 let state = 0; // 0 = pausado / 1 = tocando
 let index = 0;
 
@@ -111,10 +111,10 @@ const setName = (index) => {
 
 const setImage = (index) => {
     if(index === 0) 
-        image.src = './covers/Earfquake.jpg';
+        cover.style.backgroundImage = 'url(./covers/Earfquake.jpg)';
 
     else if(index === 1)
-        image.src = './covers/o_medo_e_a_licao.jpg';
+        cover.style.backgroundImage = 'url(./covers/o_medo_e_a_licao.jpg)';
 }
 
 //==================== EVENTOS ====================
