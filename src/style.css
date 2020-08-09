@@ -1,5 +1,14 @@
-html {
-    height: 100%;
+:root {
+    --primary-color: #161816;
+    --secondary-color: #090C08;
+    --primary-bar-color: #ff8b2c;
+    --secondary-bar-color: #A6A6A8;
+    --details-color: white;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
 }
 
 body {
@@ -8,13 +17,12 @@ body {
     justify-content: center;
     margin: 0;
     position: relative;
-    background-color: #161816;
-    background-image: linear-gradient(#161816, #090C08);
-    height: 100%;
+    background-color: var(--primary-color);
+    background-image: linear-gradient(var(--primary-color), var(--secondary-color));
     font-family: sans-serif;
 }
 
-.player {
+.player-bar {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -24,7 +32,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 88px;
-    background-color: #090C08;
+    background-color: var(--secondary-color);
 }
 
 .player_buttons {
@@ -32,7 +40,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 200px;
+    width: 12rem;
     height: 100%;
 }
 
@@ -43,15 +51,13 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+
+    cursor: pointer;
 }
 
 .retroceder i {
     font-size: 1.6em;
-    color: #ff8b2c;
-}
-
-.retroceder:hover {
-    cursor: pointer;
+    color: var(--primary-bar-color);
 }
 
 .playBtn {
@@ -63,7 +69,7 @@ body {
 }
 
 i {
-    color: #ff8b2c;
+    color: var(--primary-bar-color);
 }
 
 .playBtn i {
@@ -116,7 +122,7 @@ i {
     top: 0;
     height: 4px;
     width: 0;
-    background-color: #ff8b2c;
+    background-color: var(--primary-bar-color);
     border-radius: 12px;
 }   
 
@@ -153,7 +159,7 @@ i {
     align-items: center;
     background-color: #A6A6A8;
     width: 100%;
-    height: 4px;
+    height: 0.2rem;
     border-radius: 12px;
 }
 
@@ -165,34 +171,34 @@ i {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: #ff8b2c;
+    background-color: var(--primary-bar-color);
     height: 100%;
     width: 0;
-}
-
-.image-name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 75%;
-    height: 75%;  
-}
-
-.image {
-    width: 360px;
-    height: 360px;
-    margin-top: 40px;
     border-radius: 12px;
 }
 
-.image img {
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
+.music {
+    width: 22rem;
+    height: 22rem;
+
+    border-radius: 0.6rem;
+    background-color: var(--primary-color);
+
+    background-image: url('../covers/Earfquake.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    position: relative;
 }
 
 .name {
     color: white;
-    font-size: 32px;
-    margin-top: 12px;
+    font-size: 2rem;
+
+    width: 100%;
+    
+    position: absolute;
+    bottom: -3rem;
+
+    text-align: center;
 }
