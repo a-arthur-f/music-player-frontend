@@ -6,20 +6,56 @@
     --details-color: white;
 }
 
-html, body {
+html, body, .container {
     height: 100vh;
     width: 100vw;
+    margin: 0;
 }
 
 body {
+    
+    font-family: sans-serif;
+}
+
+.container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 0;
-    position: relative;
+    justify-content: space-around;
+
     background-color: var(--primary-color);
     background-image: linear-gradient(var(--primary-color), var(--secondary-color));
-    font-family: sans-serif;
+
+    position: relative;
+}
+
+.music {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cover {
+    width: 24rem;
+    height: 24rem;
+
+    border-radius: 0.6rem;
+    background-color: var(--primary-color);
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.name {
+    color: white;
+    font-size: 2rem;
+
+    width: 100%;
+    text-align: center;
+
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .player-bar {
@@ -177,28 +213,4 @@ i {
     border-radius: 12px;
 }
 
-.music {
-    width: 22rem;
-    height: 22rem;
 
-    border-radius: 0.6rem;
-    background-color: var(--primary-color);
-
-    background-image: url('../covers/Earfquake.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-
-    position: relative;
-}
-
-.name {
-    color: white;
-    font-size: 2rem;
-
-    width: 100%;
-    
-    position: absolute;
-    bottom: -3rem;
-
-    text-align: center;
-}
