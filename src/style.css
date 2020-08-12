@@ -197,3 +197,23 @@ i {
 }
 
 
+@media (max-width: 700px) {
+    .volume {
+        display: none;
+    }
+
+    .player-bar {
+        flex-direction: column-reverse;
+        margin-bottom: 0;
+        padding-top: 2rem;
+    }
+
+    .progress_bar {
+        width: 14rem;
+    }
+
+    .cover {
+        width: 18rem;
+        height: 18rem;
+    }
+}
